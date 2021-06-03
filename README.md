@@ -28,3 +28,8 @@ $ cat results.csv | ./hourly_average.awk | sort
 22 5.35603
 23 5.36825
 ```
+
+### cron
+```
+0 * * * * echo `date "+\%Y\%m\%d\%H\%M"`,`curl -s https://coincheck.com/api/rate/iost_jpy |jq -r .rate` >> /path/to/results.csv
+```
